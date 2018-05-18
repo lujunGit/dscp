@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: com.mx.app:common-service:master-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mx/app/common-service/master-SNAPSHOT/common-service-master-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/common-service/common-service-master-SNAPSHOT-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/mx/app/common-service/master-SNAPSHOT/common-service-master-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/common-service/common-service-master-SNAPSHOT-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/mx/app/common-service/master-SNAPSHOT/common-service-master-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
