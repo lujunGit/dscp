@@ -1,5 +1,0 @@
-com\sinohealth\dscp\DrugApplication.class
-com\sinohealth\dscp\repository\DrugRepository.class
-com\sinohealth\dscp\api\v1\DrugControllerV1.class
-com\sinohealth\dscp\service\DrugServiceV1.class
-com\sinohealth\dscp\model\Drug.class

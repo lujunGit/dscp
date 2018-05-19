@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="basicTable-service" />
+          <element id="module-output" name="basic-service" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
@@ -57,9 +57,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/basicTable-service/target/basicTable-service/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/basic-service/target/basicTable-service/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="basicTable-service/web/Web" />
+      <element id="javaee-facet-resources" facet="basic-service/web/Web" />
     </root>
   </artifact>
 </component>

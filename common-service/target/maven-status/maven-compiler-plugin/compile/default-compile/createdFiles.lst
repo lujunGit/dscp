@@ -9,6 +9,7 @@ com\sinohealth\dscp\exception\ExceptionHandlerAdvice.class
 com\sinohealth\dscp\exception\JsonResult.class
 com\sinohealth\dscp\GlobalException.class
 com\sinohealth\dscp\exception\BaseException.class
+com\sinohealth\dscp\util\EncryptUtil.class
 com\sinohealth\dscp\controller\HelloWorldController.class
 com\sinohealth\dscp\CommonApplication.class
 com\sinohealth\dscp\Constants.class

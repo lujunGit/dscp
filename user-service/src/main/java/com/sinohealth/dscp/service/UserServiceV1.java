@@ -2,12 +2,13 @@ package com.sinohealth.dscp.service;
 
 import com.sinohealth.dscp.model.User;
 import com.sinohealth.dscp.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.Date;
-import java.util.List;
+
+import javax.transaction.Transactional;
 
 @Service
 public class UserServiceV1 {
@@ -53,7 +54,7 @@ public class UserServiceV1 {
      * @param name
      * @return
      */
-    public List<User> getUserByName(String name){
+    public User getUserByName(String name){
         return userRepository.findUser(name);
     }
 }

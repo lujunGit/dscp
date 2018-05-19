@@ -1,7 +1,9 @@
 package com.sinohealth.dscp;
 
-import com.mongcent.tnaot.model.User;
-import com.mongcent.tnaot.service.UserServiceV1;
+import com.sinohealth.dscp.model.User;
+import com.sinohealth.dscp.service.UserServiceV1;
+import com.sinohealth.dscp.util.EncryptUtil;
+import com.sinohealth.dscp.util.TimeUtil;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -28,20 +29,22 @@ public class TestApplication {
 
     @Test
     public void addUserData() {
-        List<User> channelList = userServiceV1.getUserRepository().findAll();
-        if (channelList.size() > 100) {
-            logger.info("当前测试表中数据：" + channelList.size() + "条，无需增加！");
+        long num = userServiceV1.getUserRepository().count();
+        if (num > 0) {
+            logger.info("当前测试表中数据：" + num + "条，无需增加！");
         } else {
             User user = null;
             for (int i = 0; i < 100; i++) {
                 user = new User();
-                user.setName("用户"+i);
-                user.setAge(i*5);
-                user.setCreate_time(new Date());
-                user.setUpdate_time(new Date());
+                user.setName("用户" + i);
                 user.setAddress("广东-广州");
-                user.setSex("男");
-                user.setPhone(123456789);
+                user.setCreateTime(TimeUtil.ymdHms2date());
+                user.setCreateUser("lj" + i);
+                user.setEmail("1245282613@qq.com");
+                user.setLastLoginAddr("广东-广州");
+                user.setLoginName("root" + i);
+                user.setName("admin" + i);
+                user.setLoginPasswd(EncryptUtil.md5Encode("root" + i));
                 userServiceV1.addUser(user);
             }
             logger.info("数据添加完毕！");
@@ -50,47 +53,49 @@ public class TestApplication {
 
     @Test
     public void getUserByName() {
-        List<User> channelList = userServiceV1.getUserRepository().findAll();
-        int randomId = cycleRandom(channelList.size());
-        final String name = "评论" + randomId;
-        List<User> users = userServiceV1.getUserByName(name);
-        if (users.size() > 0) {
-            for (User user : users) {
-                if (user.getName().equals(name)) {
-                    logger.info("获取评论成功！");
-                } else {
-                    logger.error("获取评论异常！");
-                }
-            }
-        } else {
-            logger.error("获取评论失败！");
+        long num = userServiceV1.getUserRepository().count();
+        if (num == 0) {
+            addUserData();
+        }
+        List<User> userList = userServiceV1.getUserRepository().findAll();
+        int randomId = cycleRandom(userList.size());
+        final String name = "admin" + randomId;
+        User user = userServiceV1.getUserByName(name);
+        if (user == null) {
+            logger.error("获取用户失败！");
         }
     }
 
     @Test
     public void delRandomUser() {
-        List<User> channelList = userServiceV1.getUserRepository().findAll();
-        int randomId = cycleRandom(channelList.size());
-        User channel = null;
+        long num = userServiceV1.getUserRepository().count();
+        if (num == 0) {
+            addUserData();
+        }
+        List<User> userList = userServiceV1.getUserRepository().findAll();
+        int randomId = cycleRandom(userList.size());
+        User user = null;
         try {
-            channel = userServiceV1.getUserRepository().findOne(randomId);
-            if (channel != null) {
-                userServiceV1.getUserRepository().delete(channel);
-                logger.info("删除[" + channel.getName() + "]成功！");
-            } else {
-                logger.info("不存在评论" + randomId + "！");
+            user = userServiceV1.getUserRepository().findOne(randomId);
+            if (user != null) {
+                userServiceV1.getUserRepository().delete(user);
+                logger.info("删除[" + user.getName() + "]成功！");
             }
         } catch (Exception e) {
-            logger.error("删除[" + channel.getName() + "]失败！", e);
+            logger.error("删除[" + user.getName() + "]失败！", e);
         }
     }
 
     @Test
     public void modifyUser() {
-        List<User> channelList = userServiceV1.getUserRepository().findAll();
-        int randomId = cycleRandom(channelList.size());
+        long num = userServiceV1.getUserRepository().count();
+        if (num == 0) {
+            addUserData();
+        }
+        List<User> userList = userServiceV1.getUserRepository().findAll();
+        int randomId = cycleRandom(userList.size());
         User oldUser = userServiceV1.getUserRepository().findOne(randomId);
-        Integer flag = userServiceV1.updateUser(new Date(), new Date(), oldUser.getId
+        Integer flag = userServiceV1.updateUser(TimeUtil.ymdHms2date(), TimeUtil.ymdHms2date(), oldUser.getId
                 ());
         if (flag == 1) {
             User newUser = userServiceV1.getUserRepository().findOne(randomId);
@@ -100,8 +105,15 @@ public class TestApplication {
     }
 
     @Test
-    public void getUserByUserId(){
-
+    public void getUserByUserId() {
+        long num = userServiceV1.getUserRepository().count();
+        if (num == 0) {
+            addUserData();
+        }
+        List<User> userList = userServiceV1.getUserRepository().findAll();
+        int randomId = cycleRandom(userList.size());
+        User user = userServiceV1.getUserRepository().getOne(randomId);
+        logger.info("获取到随机用户：" + user.toString());
     }
 
     public int cycleRandom(int initNum) {

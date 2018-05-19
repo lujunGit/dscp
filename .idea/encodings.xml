@@ -2,12 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/basicTable-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/basic-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/discovery-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/drug-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dscp-ui" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/getway-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/medicine-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pharmacy-service" charset="UTF-8" />

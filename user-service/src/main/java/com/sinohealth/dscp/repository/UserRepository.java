@@ -27,9 +27,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     Channel getCartEventStreamByUser(Long userId);*/
 
     @Query("from User c where c.name=:name")
-    List<User> findUser(@Param("name") String name);
+    User findUser(@Param("name") String name);
 
     @Modifying
-    @Query("update User c set c.create_time=?1, c.update_time=?2 where c.id=?3")
+    @Query("update User u set u.createTime=?1, u.updateTime=?2 where u.id=?3")
     Integer updateUser(Date create_time, Date update_time, Integer id);
 }

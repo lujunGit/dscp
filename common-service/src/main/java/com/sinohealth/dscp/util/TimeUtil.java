@@ -19,6 +19,39 @@ public class TimeUtil {
         return sdf.format(new Date());
     }
 
+    public static Date ymdHms2date() {
+        SimpleDateFormat sdf = new SimpleDateFormat(ymdHms);
+        Date date = null;
+        try{
+            date= sdf.parse(sdf.format(new Date()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    public static Date ymd2date() {
+        SimpleDateFormat sdf = new SimpleDateFormat(ymd);
+        Date date = null;
+        try{
+            date= sdf.parse(sdf.format(new Date()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    public static Date ymdhms2date() {
+        SimpleDateFormat sdf = new SimpleDateFormat(ymdhms);
+        Date date = null;
+        try{
+            date= sdf.parse(sdf.format(new Date()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return date;
+    }
+
     public static String ymdHms2str() {
         SimpleDateFormat sdf = new SimpleDateFormat(ymdHms);
         return sdf.format(new Date());

@@ -10,7 +10,7 @@
     <version>master-SNAPSHOT</version>
 
     <modules>
-        <module>basicTable-service</module>
+        <module>basic-service</module>
         <!--<module>common-service</module>-->
         <module>config-service</module>
         <module>discovery-service</module>
