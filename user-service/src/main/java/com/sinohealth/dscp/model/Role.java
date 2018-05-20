@@ -2,14 +2,9 @@ package com.sinohealth.dscp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  * @Auther: lj
@@ -26,7 +21,7 @@ public class Role implements Serializable {
     @Column(length = 80, nullable = false, unique = true)
     private String roleName;            //角色名称
     @Column(length = 1)
-    private Integer roleStatus = 1 ;    //角色状态:1正常、0禁用 默认为1
+    private Integer roleStatus = 1;    //角色状态:1正常、0禁用 默认为1
     private Date createTime;            //创建时间
     @Column(length = 20)
     private String createUser;          //创建人
@@ -38,7 +33,7 @@ public class Role implements Serializable {
     }
 
     public Role(Integer id, String roleName, Integer roleStatus, Date createTime, String createUser,
-            Date updateTime, String updateUser) {
+                Date updateTime, String updateUser) {
         this.id = id;
         this.roleName = roleName;
         this.roleStatus = roleStatus;

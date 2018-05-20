@@ -2,13 +2,9 @@ package com.sinohealth.dscp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  * @Auther: Administrator
@@ -17,7 +13,7 @@ import javax.persistence.Id;
  */
 @Entity
 @JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
-public class Resource {
+public class Resource implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -133,8 +129,8 @@ public class Resource {
     }
 
     public Resource(Integer id, String resourceName, String resourceUrl, Integer parentId, Integer resourceType,
-            String logoUrl, Integer resourceStatus, Date createTime, String createUser, Date updateTime,
-            String updateUser) {
+                    String logoUrl, Integer resourceStatus, Date createTime, String createUser, Date updateTime,
+                    String updateUser) {
         this.id = id;
         this.resourceName = resourceName;
         this.resourceUrl = resourceUrl;

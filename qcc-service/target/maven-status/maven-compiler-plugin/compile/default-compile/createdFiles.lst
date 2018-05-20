@@ -1,0 +1,6 @@
+com\sinohealth\dscp\api\v1\QccController.class
+com\sinohealth\dscp\service\QccServiceV1.class
+com\sinohealth\dscp\repository\QccRepository.class
+com\sinohealth\dscp\QccApplication.class
+com\sinohealth\dscp\service\CommentServiceV2.class
+com\sinohealth\dscp\model\Qcc.class

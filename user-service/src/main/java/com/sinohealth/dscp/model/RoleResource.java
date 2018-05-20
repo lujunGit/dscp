@@ -1,18 +1,19 @@
 package com.sinohealth.dscp.model;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @Auther: Administrator
  * @Date: 2018/5/19 16:47
  * @Description: 角色资源
  */
-public class RoleResource {
+@Entity
+@JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
+public class RoleResource implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -88,7 +89,7 @@ public class RoleResource {
     }
 
     public RoleResource(Integer id, Integer roleId, Integer resourceId, Date createTime, String createUser,
-            Date updateTime, String updateUser) {
+                        Date updateTime, String updateUser) {
         this.id = id;
         this.roleId = roleId;
         this.resourceId = resourceId;

@@ -50,9 +50,9 @@ public class ExceptionHandlerAdvice {
         JsonResult jsonResult = new JsonResult(req.getRequestURI());
         jsonResult.setResultMsg(e.getMessage());
         if (e instanceof org.springframework.web.servlet.NoHandlerFoundException) {
-            jsonResult.setResultCode("404");
+            jsonResult.setResultCode(404);
         } else {
-            jsonResult.setResultCode("500");
+            jsonResult.setResultCode(500);
         }
         return jsonResult;
     }

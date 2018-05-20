@@ -2,14 +2,9 @@ package com.sinohealth.dscp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  * @Auther: lj
@@ -82,9 +77,9 @@ public class User implements Serializable {
     }
 
     public User(String loginName, String loginPasswd, String name, Integer sex, String telephone,
-            Integer mobilePhone, String email, String address, Integer userStatus, Date lastLoginTime,
-            String lastLoginIp, String lastLoginAddr, Date createTime, String createUser, Date updateTime,
-            String updateUser, String logoUrl) {
+                Integer mobilePhone, String email, String address, Integer userStatus, Date lastLoginTime,
+                String lastLoginIp, String lastLoginAddr, Date createTime, String createUser, Date updateTime,
+                String updateUser, String logoUrl) {
         this.loginName = loginName;
         this.loginPasswd = loginPasswd;
         this.name = name;

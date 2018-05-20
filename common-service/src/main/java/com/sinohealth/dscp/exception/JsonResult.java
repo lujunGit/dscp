@@ -2,7 +2,7 @@ package com.sinohealth.dscp.exception;
 
 public class JsonResult {
 
-    private String resultCode;
+    private Integer resultCode;
     private String resultMsg;
     private Object resultData = null;
     private String requestUrl;
@@ -26,11 +26,11 @@ public class JsonResult {
         this.resultMsg = respCode.getResMsg();
     }
 
-    public String getResultCode() {
+    public Integer getResultCode() {
         return resultCode;
     }
 
-    public void setResultCode(String resultCode) {
+    public void setResultCode(Integer resultCode) {
         this.resultCode = resultCode;
     }
 

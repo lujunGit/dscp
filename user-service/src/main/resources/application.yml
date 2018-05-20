@@ -6,10 +6,7 @@ spring:
     active: test
   application:
     name: userService
-  mvc:
-    throw-exception-if-no-handler-found: true
-  resources:
-    add-mappings: false
+
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/dscp_user?characterEncoding=UTF-8&useSSL=true
     username: root
@@ -28,6 +25,16 @@ spring:
       naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   zipkin:
     base-url: http://localhost:8087
+
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+
+  session:
+    timeout: 1200000
+
 logging:
   pattern:
     console: "%d - %msg%n"
@@ -35,7 +42,7 @@ logging:
     com.mongcent.tnaot: debug
     org.springfromework: info
     org.hibernate: error
-  file: user-service/log/user-service.log
+  file: log/user-service.log
 
 eureka:
   client:

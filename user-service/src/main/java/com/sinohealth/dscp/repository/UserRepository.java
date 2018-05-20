@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.Date;
-import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
     //自定义方法
@@ -26,10 +25,19 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "ORDER BY c.created_at ASC", nativeQuery = true)
     Channel getCartEventStreamByUser(Long userId);*/
 
-    @Query("from User c where c.name=:name")
+    @Query("from User u where u.name=:name")
     User findUser(@Param("name") String name);
 
     @Modifying
     @Query("update User u set u.createTime=?1, u.updateTime=?2 where u.id=?3")
     Integer updateUser(Date create_time, Date update_time, Integer id);
+
+    @Query("from User u where u.loginName=?1 and u.loginPasswd=?2")
+    User getUserByNamePasswd(String loginName, String loginPasswd);
+
+    User getByLoginNameAndLoginPasswd(String loginName, String loginPasswd);
+
+    User getById(Integer id);
+
+    User getByLoginName(String loginName);
 }
